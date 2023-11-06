@@ -20,9 +20,31 @@ ${SUDO} apt upgrade -y
 
 
 
-#installation de LAMP et de unzip pour dézipper l'archive prestashop
-${SUDO} apt install -y apache2 mariadb-server php libapache2-mod-php php-mysql unzip
 
+
+#installation de LAM et de unzip pour dézipper l'archive prestashop
+${SUDO} apt install -y apache2 mariadb-server libapache2-mod-php  unzip
+
+#installation de php 8.1 à partir d'un repo autre que celui de base
+${SUDO} apt-get update
+${SUDO} apt-get -y install lsb-release ca-certificates curl
+${SUDO} curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg
+${SUDO} sh -c 'echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+${SUDO} apt-get update
+
+
+${SUDO} apt update
+${SUDO} apt list --upgradable
+${SUDO} apt upgrade 
+${SUDO} apt install php8.1
+${SUDO} a2dismod php8.2
+${SUDO} a2enmod php8.1
+${SUDO} systemctl restart apache2
+
+
+# Installation de mysql
+${SUDO} apt install php8.1-mysqli
+${SUDO} systemctl restart apache2
 
 
 #creation d'un nouvel user pour la connexion ssh
