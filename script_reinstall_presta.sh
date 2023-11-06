@@ -22,9 +22,6 @@ ${SUDO} apt upgrade -y
 
 
 
-#installation de LAM et de unzip pour dézipper l'archive prestashop
-${SUDO} apt install -y apache2 mariadb-server libapache2-mod-php  unzip
-
 #installation de php 8.1 à partir d'un repo autre que celui de base
 ${SUDO} apt-get update
 ${SUDO} apt-get -y install lsb-release ca-certificates curl
@@ -42,9 +39,11 @@ ${SUDO} a2enmod php8.1
 ${SUDO} systemctl restart apache2
 
 
-# Installation de mysql
-${SUDO} apt install php8.1-mysqli
+#installation de LAM et de unzip pour dézipper l'archive prestashop
+${SUDO} apt install -y apache2 mariadb-server libapache2-mod-php php8.1-mysqli unzip
 ${SUDO} systemctl restart apache2
+
+
 
 
 #creation d'un nouvel user pour la connexion ssh
@@ -71,11 +70,11 @@ ${SUDO} apt install nodejs -y
 #installation de npm
 ${SUDO} apt install npm -y
 
-#recup le git
-${SUDO}  apt install git -y
-${SUDO} git clone **le lien** /var/www/html/chat
-cd /var/www/html/chat
-${SUDO} npm install
+# #recup le git
+# ${SUDO}  apt install git -y
+# ${SUDO} git clone **le lien** /var/www/html/chat
+# cd /var/www/html/chat
+# ${SUDO} npm install
 
 
 
@@ -98,7 +97,6 @@ EOF
 
 quit
 
-#pk ca marche pas pas
 
 ############## ajout du certificat ssl ################
 
@@ -185,7 +183,7 @@ sudo apt update
 sudo apt upgrade -y
 
 # Installation de LAMP
-sudo apt install -y apache2 mysql-server php libapache2-mod-php php-mysql
+# sudo apt install -y apache2 mysql-server php libapache2-mod-php php-mysql
 
 # Redémarrage des services
 sudo systemctl restart apache2
