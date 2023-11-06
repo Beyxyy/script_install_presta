@@ -97,7 +97,7 @@ ${SUDO} systemctl reload apache2
 
 #installation de let's encrypt sur le serveur
 ${SUDO} apt install python3-certbot-apache -y
-${SUDO} certbot certonly --standalone --agree-tos --preferred-challenges http -d ip85-215-33-235.pbiaas.com
+${SUDO} certbot certonly --standalone --agree-tos --preferred-challenges http -d ip87-106-123-61.pbiaas.com
 
 
 
