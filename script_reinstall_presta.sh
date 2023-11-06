@@ -76,7 +76,7 @@ EOF
 
 quit
 
-#pk ca marche pas 
+#pk ca marche pas pas
 
 ############## ajout du certificat ssl ################
 
